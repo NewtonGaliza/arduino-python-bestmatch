@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Arduino & Python - Best Match</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+					<div align="right" valign="top">
+					<img src="images/RoboCore.png" width=280 height=100>
+					</div>
+
+				<section>
+                                	<img src="images/arduinopython.jpg">
+				</section>
+
+				<section>
+					<h3>Oferecimento</h3>
+					<img src="images/robocore.jpg">
+				</section>
+
+				<section>
+					<h2>Arduino</h2>
+					<p>
+					Arduino é uma plataforma de prototipagem eletrônica de hardware livre, criada na cidade Ivrea, na Itália em 2005, projetada com um microcontrolador Atmel AVR com suporte de entrada/saída embutido, uma linguagem de programação padrão, essencialmente C/C++.
+					</p>
+				</section>
+
+				<section>
+					<h2>Python</h2>
+					<p>Python é uma linguagem de programação de alto nível, interpretada, de script, orientada a objetos, funcional, de tipagem dinâmica e forte. Foi lançada por Guido van Rossum em 1991
+					</p>
+				</section>
+
+				<section>
+					<img src="images/placasarduino.png">
+					<p align="left">Modelos de Arduino</p>
+				</section>
+
+				<section>					
+						<section>
+							<p>Sistema de acesso RFID</p>
+							<img src="images/acessorfid.jpg">
+						</section>
+						<section>
+							<img src="images/colorsorter.jpg">
+						</section>
+						<section>
+							<img src="images/flappybird.jpg">
+						</section>
+						<section>
+							<p>Painéis de LED customizáveis</p>
+							<img src="images/paineisled.jpg">
+						</section>
+						<section>
+							<img src="images/radiorelogio.jpg">
+						</section>
+						<section>
+							<img src="images/remotecar.jpg">
+						</section>
+						<section>
+							<img src="images/sistemaseguranca.jpg">
+						</section>
+						<section>
+							<img src="images/vendingmachine.jpg">
+						</section>
+				</section>
+
+				<section>
+					<h1>BlackBoard</h1>
+					<img src="images/blackboard.png" width=600 height=500>
+				</section>
+
+				<section>
+					<h1>It's Coding Time</h1>
+					<img src="images/codingtime.jpg" width=400 height=300>
+				</section>
+				
+				<section>
+					<section>
+					<h3>O que vamos usar</h3>
+					<p>Protoboard</p>
+					<img src="images/protoboard.jpg">
+					</section>
+			
+					<section>
+					<img src="images/blackboard.png"  width=600 height=500>
+					</section>
+
+					<section>
+					<p>Jumpers</p>
+					<img src="images/jumpers.png">
+					</section>
+
+					<section>
+					<p>Resistores</p>
+					<img src="images/resistores.png">
+					</section>
+
+					<section>
+					<p>Sensor de Distância Ultrassônico HC-SR04</p>
+					<img src="images/hcsr04.jpg">
+					</section>
+
+					<section>
+					<img src="images/arduinoide.png">
+					</section>
+
+					<section>
+					<p>Módulo PySerial</p>
+					<pre><code>
+					pip install pyserial
+					</code></pre>
+					<img src="images/pyserial.png" width=600 height=500>
+					</section>
+				</section>
+
+				<section>
+					<h3>Led Blink - C</h3>
+					<pre><code>				
+int led = 13;
+
+void setup() {                
+  // initialize the digital pin as an output.
+  pinMode(led, OUTPUT);     
+}
+
+void loop() {
+  digitalWrite(led, HIGH);   // turn the LED on
+  delay(1000);               // wait for a second
+  digitalWrite(led, LOW);    // turn the LED off 
+  delay(1000);               // wait for a second		
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Led Blink - Python</h3>
+					<pre><code>
+import serial
+import time
+conexao = serial.Serial('/dev/ttyUSB0', 9600)
+
+def pisca(tempo=0.1):
+    while True:
+        conexao.write('1') # Escreve 1 no arduino (LED acende)
+        time.sleep(tempo) # Aguarda n segundos
+        conexao.write('2') # Escreve 2 no arduino (LED apaga)
+        time.sleep(tempo) # Aguarda n segundos
+
+if __name__ == '__main__':
+    pisca()
+					</code></pre>
+				</section>
+
+				<section>
+					<h3>Régua Ultrassônica</h3>
+					<pre><code>
+import serial
+
+arduinoSerialData = serial.Serial('/dev/ttyUSB0', 9600)
+
+while (1==1):
+    if (arduinoSerialData.inWaiting() > 0):
+        myData = arduinoSerialData.readline()
+        distance = float(myData)
+        print(distance)		
+					</code></pre>
+				</section>	
+
+				<section>
+					<h3>Perguntas</h3>
+					<img src='images/question.png' width=200>
+					<p>newtonjgaliza@gmail.com</p>
+					<p>github.com/newtongaliza</p>
+					<br/>
+					<h3>print('Muito Obrigado')</h3>
+				</section>
+
+
+
+
+
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
