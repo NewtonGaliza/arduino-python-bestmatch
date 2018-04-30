@@ -167,6 +167,8 @@ for i in range(10):
     time.sleep(1)
 
 					</code></pre>
+<<<<<<< HEAD
+=======
 				</section>
 				<section>
 					<h3>Led Blink - Python(BlackBoard)</h3>
@@ -206,6 +208,7 @@ for i in range(10):
     time.sleep(1)
 
 					</code></pre>
+>>>>>>> 55fd0db55b1204eb71c0d522f23e386126802826
 				</section>	
 				
 				<section>
